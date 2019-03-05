@@ -12,17 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.WPF;
 
 namespace WpfFormsApp1
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MainWindow : FormsApplicationPage
 	{
 		public MainWindow()
 		{
 			InitializeComponent();
+			Xamarin.Forms.Forms.Init();
+			LoadApplication(new FormsApp());
+
+			Visibility = Visibility.Collapsed;
+			WindowStyle = WindowStyle.None;
+			ResizeMode = ResizeMode.NoResize;
+			WindowState = WindowState.Maximized;
+			Topmost = true;
+			Visibility = Visibility.Visible;
 		}
 	}
 }
